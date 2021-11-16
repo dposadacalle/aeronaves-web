@@ -1,0 +1,26 @@
+<div class="col-md-4 mx-auto">
+
+    <div class="card m-5">
+        <div class="card-header">
+            <h5 class="card-title text-center text-primary">Nuevo viaje</h5>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="guardarViaje()">
+                <div class="mb-3">
+                    <label for="origen" class="form-label">Origen:</label>
+                    <input type="text" [(ngModel)]="viaje.origen" class="form-control" id="origen" name="origen" placeholder="Email" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="destino" class="form-label">Destino:</label>
+                    <input type="text" [(ngModel)]="viaje.destino" class="form-control" id="destino" name="destino" placeholder="Password" required>
+                </div>
+                <div class="d-grid gap-2">
+
+                    <button type="submit" class="btn btn-success">Guardar</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Lista viajes</h1>
+
+    <button [routerLink]="['/nuevoViaje']" class="btn btn-primary m-2">Nuevo viaje</button>
+
+    <div class="row">
+
+        <div *ngFor="let viaje of viajes" class="col-md-4 col-sm-6 col-12">
+
+            <app-tarjeta-viaje [inViaje]="viaje"></app-tarjeta-viaje>
+
+        </div>
+
+    </div>
+
+
+</div>

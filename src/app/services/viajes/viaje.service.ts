@@ -1,24 +1,32 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Helper } from '../../helpers/helpers';
+
+// Helpers
+import { Contants } from '../../helpers/contants';
+
+// Interfaces
+import { Viaje } from '../../interfaces/viaje.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ViajeService {
 
-  constructor(private _httpClient: HttpClient, private helper: Helper) { }
+  private _constants = new Contants();
 
-  public listarViajes(): Observable<any>{
+  constructor(private _httpClient: HttpClient) { }
 
-    return this._httpClient.get(`${this.helper._baseUrl}/viajes`);
+  public getViajes(): Observable<Viaje>{
+
+    return this._httpClient.get<Viaje>(`${this._constants.apiUrl}/viajes`);
+    
   }
 
-  public crearViaje(viaje: any): Observable<any>{
+  public createViaje(dataViaje: Viaje): Observable<Viaje>{
 
-    return this._httpClient.post(`${this.helper._baseUrl}/viajes`, viaje);
+    return this._httpClient.post<Viaje>(`${this._constants.apiUrl}/viajes/crearViaje`, dataViaje);
+    
   }
 
 }
